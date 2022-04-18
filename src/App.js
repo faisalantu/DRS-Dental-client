@@ -5,10 +5,12 @@ import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Signin from './components/Signin/Signin';
 import Signup from './components/Signup/Signup';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <div>
+      <Toaster />
       <Header />
       <Routes>
         <Route path='/' element={<Home />}></Route>
