@@ -54,6 +54,7 @@ const Signup = () => {
               name='email'
               ref={email}
               autoFocus
+              required
               className=' w-full mb-2 rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none'
               placeholder='Your email'
               type='email'
@@ -65,6 +66,7 @@ const Signup = () => {
               id='password1'
               name='password1'
               ref={passowrd1}
+              required
               autoFocus
               className=' w-full mb-4 rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none'
               placeholder='Password'
@@ -78,6 +80,7 @@ const Signup = () => {
               id='password2'
               name='password2'
               ref= {passowrd2}
+              required
               className=' w-full mb-4 rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none'
               placeholder='Password'
               type='password'
@@ -111,7 +114,7 @@ const Signup = () => {
               disabled={!agree}
               className=' text-sm text-center bg-blue-400 text-white py-2 rounded font-medium'
             >
-              Log In
+              Sign up
             </button>
           </form>
           <div className='flex justify-evenly space-x-2 w-72 mt-4'>

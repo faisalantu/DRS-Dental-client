@@ -77,6 +77,7 @@ const Signin = () => {
               id='email'
               ref={emailRef}
               autoFocus
+              required
               className=' w-full mb-2 rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none'
               placeholder='Your email'
               type='email'
@@ -87,6 +88,7 @@ const Signin = () => {
             <input
               id='password'
               ref={passwordRef}
+              required
               className=' w-full mb-4 rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none'
               placeholder='Password'
               type='password'
