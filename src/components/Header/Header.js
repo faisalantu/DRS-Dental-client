@@ -49,7 +49,11 @@ const Header = () => {
             <CustomLink className="mx-1 px-1" to='/'>Home</CustomLink>
             <CustomLink className="mx-1 px-1" to='/blogs'>Blogs</CustomLink>
             <CustomLink className="mx-1 px-1" to='/about'>About</CustomLink>
+            {user?
+            <button onClick={()=>{signOut(auth)}} className="mx-1 px-1">logout </button>
+            :
             <CustomLink className="mx-1 px-1" to='/signin'>Sign in</CustomLink>
+            }
           </div>
           : ""}
       </div>
