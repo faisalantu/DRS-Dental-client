@@ -1,20 +1,58 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { toast } from "react-hot-toast";
+import auth from "./../../firebase.init";
 
 const Signup = () => {
   const [agree, setAgree] = useState(false);
+  const email = useRef("")
+  const passowrd1 = useRef("")
+  const passowrd2 = useRef("")
+  //eslint-disable-next-line
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  //eslint-disable-next-line
+  const [createUserWithEmailAndPassword, user1, loading1, error1] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+
+
+  const handleUserPasswordSignUp = (e)=>{
+    e.preventDefault();
+    const email1 = email.current.value;
+    const passwordOne = passowrd1.current.value;
+    const passwordTwo = passowrd2.current.value;
+    if(passwordOne === passwordTwo){
+      if(passwordOne.length<6){
+        toast.error("passowrd should be more than 6 charecter")
+      }else{
+        createUserWithEmailAndPassword(email1,passwordOne)
+      }
+    } else{
+      toast.error("passowrd are not same")
+    }
+  
+  }
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error?.message);
+    } else if (error1) {
+      toast.error(error1?.message);
+    }
+  }, [error, error1]);
   return (
     <div>
       <div className='my-11 md:my-32 flex flex-col justify-center items-center px-2 md:px-0'>
         <div className='bg-white border border-gray-300 w-full md:w-96 py-8 flex items-center flex-col mb-3'>
-          <form className='mt-8 w-72 flex flex-col'>
+          <form onSubmit={handleUserPasswordSignUp} className='mt-8 w-72 flex flex-col'>
             <label className='text-sm' htmlFor='email'>
               Input your Email
             </label>
             <input
               id='email'
+              name='email'
+              ref={email}
               autoFocus
               className=' w-full mb-2 rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none'
               placeholder='Your email'
@@ -25,6 +63,8 @@ const Signup = () => {
             </label>
             <input
               id='password1'
+              name='password1'
+              ref={passowrd1}
               autoFocus
               className=' w-full mb-4 rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none'
               placeholder='Password'
@@ -36,6 +76,8 @@ const Signup = () => {
             <input
               autoFocus
               id='password2'
+              name='password2'
+              ref= {passowrd2}
               className=' w-full mb-4 rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none'
               placeholder='Password'
               type='password'
@@ -79,7 +121,10 @@ const Signup = () => {
             </span>
             <span className='bg-gray-300 h-px flex-grow t-2 relative top-2'></span>
           </div>
-          <button className=' flex items-center justify-center border rounded-lg bg-gray-50 px-4 py-2'>
+          <button
+            onClick={() => signInWithGoogle()}
+            className=' flex items-center justify-center border rounded-lg bg-gray-50 px-4 py-2'
+          >
             <FcGoogle />
             <span className=' text-blue-900 font-semibold ml-2'>
               Sign up using Google
