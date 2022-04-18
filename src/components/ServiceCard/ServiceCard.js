@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 const ServiceCard = ({ data }) => {
-  const { title, description, img } = data;
+  const { title, description, img,price } = data;
   return (
     <div className='rounded bg-slate-50 text-center shadow overflow-hidden flex justify-between flex-col p-5 md:mx-7'>
       <div className='p-3 '>
@@ -13,6 +13,7 @@ const ServiceCard = ({ data }) => {
           />
         </div>
         <h2 className='font-semibold text-2xl pt-3 px-5'>{title}</h2>
+        <p className="my-3 font-semibold text-lg">Price: {price}</p>
         <p>{description}</p>
         
       </div>

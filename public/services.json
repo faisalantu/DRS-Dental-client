@@ -3,18 +3,21 @@
     "id": "01623e8d246ca6e4b3d3a7d5946",
     "title": "Root canals",
     "description": "I do Root canal is a treatment to repair and save a badly damaged or infected tooth instead of removing it. Decades ago, root canal treatments often were painful.",
-    "img": "./rootcanal.jpg"
+    "img": "./rootcanal.jpg",
+    "price": "5000 taka"
   },
   {
     "id": "02623e8d246cae4b3d3a7d59476",
     "title": "Whitening",
     "description": "With professional Teeth Whitening treatment, you can enjoy the boost in confidence of a bright, white smile. At LASER DENTAL, we trust the best Teeth Whitening",
-    "img": "./whitening.jpg"
+    "img": "./whitening.jpg",
+    "price": "2000 taka"
   },
   {
     "id": "03623e8d246cae4b3d3a7d59427",
     "title": "Check up",
     "description": "Checkup your teeth for any cavity or any problems. I do checkup with care and be transparent with the pacient. you wont feel any pain during the process.",
-    "img": "./checkup.png"
+    "img": "./checkup.png",
+    "price": "500 taka"
   }
 ]
