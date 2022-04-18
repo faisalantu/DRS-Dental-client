@@ -8,7 +8,6 @@ const Footer = () => {
       <div className='container mx-auto py-20  flex flex-col-reverse md: md:flex-row-reverse justify-center items-center md:justify-evenly'>
         <div className="flex md:flex-col mt-5 md:mt-0">
           <Link className="mx-1 px-1" to='/'>Home</Link>
-          <Link className="mx-1 px-1" to='/checkout'>Checkout</Link>
           <Link className="mx-1 px-1" to='/blogs'>Blogs</Link>
           <Link className="mx-1 px-1" to='/about'>About</Link>
         </div>
