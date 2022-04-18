@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { toast } from "react-hot-toast";
@@ -16,6 +16,8 @@ const Signup = () => {
   //eslint-disable-next-line
   const [createUserWithEmailAndPassword, user1, loading1, error1] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
 
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleUserPasswordSignUp = (e)=>{
     e.preventDefault();
@@ -33,6 +35,11 @@ const Signup = () => {
     }
   
   }
+   //redirect
+   let from = location.state?.from?.pathname || "/";
+   if (user || user1) {
+     navigate(from, { replace: true });
+   }
 
   useEffect(() => {
     if (error) {

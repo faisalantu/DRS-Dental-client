@@ -58,7 +58,7 @@ const Signin = () => {
     }
   }, [error, error1, error3]);
   let from = location.state?.from?.pathname || "/";
-  if (user) {
+  if (user || user1) {
     navigate(from, { replace: true });
   }
 
