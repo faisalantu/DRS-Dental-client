@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import CustomLink from "../CustomLink/CustomLink";
 import { FaTooth } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
+import {signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user] = useAuthState(auth);
   return ( 
     <nav className="bg-blue-50 text-blue-900 ">
       {/*💻 for pc device  */}
@@ -18,7 +23,13 @@ const Header = () => {
           <CustomLink className="mx-1 px-1" to='/about'>About</CustomLink>
         </div>
         <div className="flex justify-center items-center">
+          {user?
+          <button onClick={()=>{signOut(auth)}} className="mx-1 px-1">logout </button>
+          :
           <CustomLink className="mx-1 px-1" to='/signin'>Sign in</CustomLink>
+          }
+          
+          
         </div>
       </div>
 
