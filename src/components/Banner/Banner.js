@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <div className='bg-blue-50'>
       <div className='container mx-auto flex justify-center items-center'>
-        <img src={bannerImage} alt='dentiest' />
+        <img style={{height:"550px"}} className=" md:h-auto object-cover md:object-none" src={bannerImage} alt='dentiest' />
       </div>
     </div>
   );

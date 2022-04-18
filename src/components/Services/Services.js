@@ -11,8 +11,8 @@ const Services = () => {
   
   return (
     <div className='container mx-auto'>
-      <div className="text-center pt-5 font-semibold text-2xl mt-10">
-        <span className="border-b-2 border-blue-800">Our Services</span>
+      <div className="text-center pt-5 font-semibold text-3xl mt-10">
+        <span className="border-b-2 border-blue-800">My Services</span>
       </div>
       <div className="md:grid md:grid-cols-3 md:gap-10 my-16 px-3 md:px-0">
         {allServices.map((data)=>{
